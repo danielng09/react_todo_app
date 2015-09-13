@@ -6,10 +6,14 @@ var app = app || {};
 	app.TodoItem = React.createClass({
 
     // handle todo item here
-
 		render: function () {
+			var completed;
+			if (this.props.item.completed) {
+				completed = 'completed';
+			}
+
 			return (
-				<li>
+				<li className={completed}>
 					<div className="view">
 						<input
 							className="toggle"
@@ -17,7 +21,7 @@ var app = app || {};
 							checked={this.props.item.completed}
 							onChange={this.props.handleToggle.bind(null, this.props.item)}
 						/>
-						<label>
+						<label cl>
 							{this.props.item.title}
 						</label>
 						<button
