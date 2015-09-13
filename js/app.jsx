@@ -50,13 +50,19 @@ var app = app || {};
 			this.props.store.destroy(item)
 		},
 
+		getCount: function () {
+			return this.props.store.todos.filter(function(item) {
+				return item.completed === false;
+			}).length
+		},
+
 		render: function () {
 			var footer;
 			var main;
 			var todos = this.props.store.todos;
 
 			footer = <TodoFooter
-        count="0"
+        count={this.getCount()}
       />;
 
 			main = (
