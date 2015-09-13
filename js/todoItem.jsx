@@ -22,12 +22,18 @@ var app = app || {};
 			event.preventDefault();
 			this.changeEditView();
 			this.props.handleEdit.apply(null, [this.props.item, this.state.text])
-			console.log('was here!')
 		},
 
 		handleTextEdit: function (event) {
 			var text = event.target.value;
 			this.setState({ text: text })
+		},
+
+		escapeEdit: function (event) {
+			if (this.state.editView) {
+				this.handleSubmitEdit(event);
+				this.changeEditView();
+			}
 		},
 
     // handle todo item here
@@ -63,6 +69,7 @@ var app = app || {};
 						className="edit"
 						value={this.state.text}
 						onChange={this.handleTextEdit}
+						onBlur={this.escapeEdit}
 					/>
 					</form>
 				</li>
