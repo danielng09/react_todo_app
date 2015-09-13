@@ -11,7 +11,8 @@ var app = app || {};
 	var TodoApp = React.createClass({
 		getInitialState: function () {
 			return {
-				editing: null
+				editing: null,
+				viewType: 'All'
 			};
 		},
 
@@ -55,19 +56,25 @@ var app = app || {};
 			this.props.store.save(item, text)
 		},
 
-		getCount: function () {
-			return this.props.store.todos.filter(function(item) {
-				return item.completed === false;
-			}).length
+		handleViewChange: function (view) {
+			this.setState({ viewType: view });
 		},
 
 		render: function () {
 			var footer;
 			var main;
-			var todos = this.props.store.todos;
+			var todos = this.props.store.todos
+			if (this.state.viewType !== 'All') {
+				var completed = (this.state.viewType === 'Completed')
+				todos = todos.filter(function(todo) {
+					return todo.completed === completed;
+				})
+			}
 
 			footer = <TodoFooter
-        count={this.getCount()}
+        count={todos.length}
+				viewType={this.state.viewType}
+				handleViewChange={this.handleViewChange}
       />;
 
 			main = (
