@@ -47,7 +47,7 @@ var app = app || {};
 			}
 
 			return (
-				<li className={style.join(' ')} onDoubleClick={this.changeEditView}>
+				<li className={style.join(' ')}>
 					<div className="view">
 						<input
 							className="toggle"
@@ -55,7 +55,7 @@ var app = app || {};
 							checked={this.props.item.completed}
 							onChange={this.props.handleToggle.bind(null, this.props.item)}
 						/>
-						<label cl>
+						<label onDoubleClick={this.changeEditView}>
 							{this.props.item.title}
 						</label>
 						<button
