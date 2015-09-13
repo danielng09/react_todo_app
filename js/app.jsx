@@ -37,6 +37,7 @@ var app = app || {};
 						item={item}
 						handleToggle={this.handleToggle}
 						handleDestroy={this.handleDestroy}
+						handleEdit={this.handleEdit}
 					/>
 				</section>
 			)
@@ -48,6 +49,10 @@ var app = app || {};
 
 		handleDestroy: function(item) {
 			this.props.store.destroy(item)
+		},
+
+		handleEdit: function(item, text) {
+			this.props.store.save(item, text)
 		},
 
 		getCount: function () {
