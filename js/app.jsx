@@ -60,6 +60,14 @@ var app = app || {};
 			this.setState({ viewType: view });
 		},
 
+		handleClear: function () {
+			this.props.store.todos.forEach(function(todo) {
+				if (todo.completed) {
+					this.props.store.destroy(todo)
+				}
+			}.bind(this))
+		},
+
 		render: function () {
 			var footer;
 			var main;
@@ -75,6 +83,7 @@ var app = app || {};
         count={todos.length}
 				viewType={this.state.viewType}
 				handleViewChange={this.handleViewChange}
+				handleClear={this.handleClear}
       />;
 
 			main = (

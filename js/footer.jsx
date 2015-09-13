@@ -46,6 +46,8 @@ var app = app || {};
 								 Completed</a>
 						</li>
 					</ul>
+
+					<button className='clear-completed' onClick={this.props.handleClear}>Clear completed</button>
 				</footer>
 			);
 		}
