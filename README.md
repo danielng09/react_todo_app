@@ -31,3 +31,4 @@ Keep in mind that
 "store" propery inside the app. Id doesn't need to be implemented.
 - The complete list of todos is available available in the model "app.store.todos"
 - Any changes to the store, automatically triggers a re-render of the React components
+# react_todo_app
