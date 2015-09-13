@@ -81,7 +81,7 @@ var app = app || {};
 			return (
 				<div>
 					<header className="header">
-						<h1>Gild Todos</h1>
+						<h1>My Todos</h1>
 						<input
 							ref="newField"
 							className="new-todo"

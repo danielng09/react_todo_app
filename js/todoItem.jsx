@@ -11,7 +11,9 @@ var app = app || {};
 		},
 
 		componentDidUpdate: function () {
-			this.refs.editField.getDOMNode().focus();
+			var node = this.refs.editField.getDOMNode()
+			node.focus();
+			node.setSelectionRange(node.value.length, node.value.length);
 		},
 
 		changeEditView: function () {
